@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { CardList } from "./components/card-list/card-list.component";
 import { SearchBox } from "./components/search-box/search-box.component";
+import logo from './logo.svg'
 class App extends React.Component {
   constructor() {
     super();
@@ -48,7 +49,7 @@ class App extends React.Component {
     
     return (
       <div className='App'>
-        {/* <header className="App-header">
+        <header className="App-header">
             <img src={logo} className = "App-logo" alt = "logo"/>
             <p> 
               {this.state.string}
@@ -63,7 +64,7 @@ class App extends React.Component {
             }>
               Click me
             </button>
-          </header>         */}
+          </header>        
         <SearchBox 
           placeholder ='search monters'
           handleChange = {this.searchMonster}
