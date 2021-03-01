@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { CardList } from "./components/card-list/card-list.component";
-
+import { SearchBox } from "./components/search-box/search-box.component";
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       string: 'Oscar',
       people: [],
+      searchField: ''
     }
   }
 
@@ -16,11 +16,25 @@ class App extends React.Component {
     fetch('http://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({
-        people: users
+        people: users,
+        searchField: ''
       }))
   }
 
+  searchMonster = (e) => {
+    this.setState({
+      searchField : e.target.value
+    }, ()=> console.log(this.state.searchField)
+    )
+  }
+
   render() {
+    const {searchField, people} = this.state
+    const filterPeople = people.filter(
+      people => people.name.toLowerCase().includes(searchField.toLowerCase())
+    )
+
+    
     return (
       <div className='App'>
         {/* <header className="App-header">
@@ -39,8 +53,11 @@ class App extends React.Component {
               Click me
             </button>
           </header>         */}
-
-        <CardList people = {this.state.people}/>
+        <SearchBox 
+          placeholder ='search monters'
+          handleChange = {this.searchMonster}
+        />
+        <CardList people = {filterPeople}/>
       </div>
     );
   }
