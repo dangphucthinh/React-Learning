@@ -4,14 +4,16 @@ import { CardList } from "./components/card-list/card-list.component";
 import { SearchBox } from "./components/search-box/search-box.component";
 import logo from './logo.svg'
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      string: 'Oscar',
+      name: 'Oscar',
       people: [],
-      searchField: ''
+      searchField: '',
+      number : 29 + this.props.increment
     }
 
+    this.props = props 
     // this.searchMonster = this.searchMonster.bind(this) //cach 2
   }
 
@@ -40,6 +42,20 @@ class App extends React.Component {
   //   )
   // }
 
+  handleClick = () =>{
+    // this.setState({
+    //   number : this.state.number + 1
+    // },
+    // () => console.log(this.state.number))
+    this.setState((prevState, prevProps) => {
+      return {
+        number : prevState.number + prevProps.increment
+      }
+    },
+    () => console.log(this.state.number)
+    )
+  }
+
   render() {
     const {searchField, people} = this.state
     const filterPeople = people.filter(
@@ -52,15 +68,11 @@ class App extends React.Component {
         <header className="App-header">
             <img src={logo} className = "App-logo" alt = "logo"/>
             <p> 
-              {this.state.string}
+              {this.state.number}
             </p>
             <button
             onClick={
-              () => {this.setState(
-                {
-                  string:"Thinh Dang"
-                }
-              )}
+             this.handleClick
             }>
               Click me
             </button>
