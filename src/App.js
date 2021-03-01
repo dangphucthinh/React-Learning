@@ -10,6 +10,8 @@ class App extends React.Component {
       people: [],
       searchField: ''
     }
+
+    // this.searchMonster = this.searchMonster.bind(this) //cach 2
   }
 
   componentDidMount() {
@@ -21,12 +23,21 @@ class App extends React.Component {
       }))
   }
 
+  //cach 1
   searchMonster = (e) => {
     this.setState({
       searchField : e.target.value
     }, ()=> console.log(this.state.searchField)
     )
   }
+
+  //cach 2
+  // searchMonster(e) {
+  //   this.setState({
+  //     searchField : e.target.value
+  //   }, ()=> console.log(this.state.searchField)
+  //   )
+  // }
 
   render() {
     const {searchField, people} = this.state
