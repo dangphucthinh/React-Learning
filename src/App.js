@@ -17,7 +17,21 @@ class App extends React.Component {
     // this.searchMonster = this.searchMonster.bind(this) //cach 2
   }
 
+  componentDidUpdate(){
+      console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount(){
+      console.log('componentWillUnmount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+      console.log('shouldComponentUpdate');
+      return true
+  }
+
   componentDidMount() {
+    console.log('componentDidMount');
     fetch('http://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({
@@ -57,6 +71,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('render');
     const {searchField, people} = this.state
     const filterPeople = people.filter(
       people => people.name.toLowerCase().includes(searchField.toLowerCase())
@@ -76,7 +91,7 @@ class App extends React.Component {
             }>
               Click me
             </button>
-          </header>        
+          </header>    
         <SearchBox 
           placeholder ='search monters'
           handleChange = {this.searchMonster}
