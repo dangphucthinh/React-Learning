@@ -213,36 +213,54 @@ class App extends React.Component {
       people => people.name.toLowerCase().includes(searchField.toLowerCase())
     )
 
-    
+    var redux = require('redux')
+
+    var oldState ={
+      num: ['c','a','b'],
+      editStatus: true
+    }
+
+    var reducer1 = (state = oldState, action) => {
+      switch(action.type){
+        case "Change_edit_status":
+          return {...state,editStatus: !state.editStatus}
+        case "Change_add_status":
+          return {
+            ...state,
+            num : [...state.num, action.newItem]
+          }
+        default:
+          break
+      }
+        return state
+    }
+
+    var store1 = redux.createStore(reducer1)
+
+    console.log(store1.getState());
+
+    store1.dispatch({
+      type : "Change_edit_status",
+    })
+
+    console.log(store1.getState());
+
+
+    store1.dispatch({
+      type : "Change_add_status",
+      newItem : "hihih"
+    })
+
+    console.log(store1.getState());
+
     return (
       <div className='App'>
         <header className="App-header">
             <img src={logo} className = "App-logo" alt = "logo"/>
             <p> 
-              {this.state.number}
+              hihi
             </p>
-            <button
-            onClick={
-             this.handleClick
-            }>
-              Click me
-            </button>
-            <button
-            onClick = {
-              this.toggleLifecyle.bind(this)
-            }>
-              Toggle lifecycle
-            </button>
-
-            <button
-              onClick = {
-               this.onText
-              }
-            >
-              Update text
-            </button>
-
-            {this.state.showChild ? <LifeCycles text = {this.state.text} ></LifeCycles> : null}
+            <LifeCycles text = {this.state.text}></LifeCycles>
           </header>    
         <SearchBox 
           placeholder ='search monters'

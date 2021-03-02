@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 class LifeCycles extends Component {
     constructor(){
         super()
