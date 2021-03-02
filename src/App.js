@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { CardList } from "./components/card-list/card-list.component";
+import LifeCycles from './components/Life-cycle/LifeCycles.component';
 import { SearchBox } from "./components/search-box/search-box.component";
 import logo from './logo.svg'
 class App extends React.Component {
@@ -10,28 +11,16 @@ class App extends React.Component {
       name: 'Oscar',
       people: [],
       searchField: '',
-      number : 29 + this.props.increment
+      number : 29 + this.props.increment,
+      text: '',
+      showChild : true
     }
 
     this.props = props 
     // this.searchMonster = this.searchMonster.bind(this) //cach 2
   }
 
-  componentDidUpdate(){
-      console.log('componentDidUpdate');
-  }
-
-  componentWillUnmount(){
-      console.log('componentWillUnmount');
-  }
-
-  shouldComponentUpdate(nextProps, nextState){
-      console.log('shouldComponentUpdate');
-      return true
-  }
-
   componentDidMount() {
-    console.log('componentDidMount');
     fetch('http://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({
@@ -70,6 +59,22 @@ class App extends React.Component {
     )
   }
 
+  toggleLifecyle(){
+    this.setState(state => ({
+      showChild : !state.showChild
+    }
+    ),
+    () => console.log("concasc"))
+  }
+
+  onText = () => {
+    this.setState(state => ({
+      text : !state.text + '_hello'
+    }
+    ),
+    () => console.log("concasc"))
+  }
+
   render() {
     console.log('render');
     const {searchField, people} = this.state
@@ -91,6 +96,22 @@ class App extends React.Component {
             }>
               Click me
             </button>
+            <button
+            onClick = {
+              this.toggleLifecyle.bind(this)
+            }>
+              Toggle lifecycle
+            </button>
+
+            <button
+              onClick = {
+               this.onText
+              }
+            >
+              Update text
+            </button>
+
+            {this.state.showChild ? <LifeCycles text = {this.state.text} ></LifeCycles> : null}
           </header>    
         <SearchBox 
           placeholder ='search monters'
