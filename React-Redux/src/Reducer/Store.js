@@ -1,5 +1,5 @@
-import editReducer from './editStatusReducer'
-import numReducer from './numReducer'
+import editReducer from './editStatusReducer';
+import numReducer from './numReducer';
 
 var redux = require('redux')
 
@@ -28,8 +28,8 @@ var redux = require('redux')
 // }
 
 const allReducer = redux.combineReducers({
-    numReducerState : numReducer,
-    editReducerState : editReducer
+    num : numReducer,
+    editStatus : editReducer
 })
 
 
@@ -49,7 +49,7 @@ store1.dispatch({
 
 store1.dispatch({
     type: "Change_delete_status",
-    index: 1
+    index: 2
 })
 
 export default store1; //store is created by STORE FUNCTION

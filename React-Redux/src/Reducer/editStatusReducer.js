@@ -1,5 +1,5 @@
-const editReducerState = false
-const editReducer =  (state = editReducerState , action) => {
+const editInitialState = false
+const editReducer =  (state = editInitialState , action) => {
     switch (action.type) {
         case "Change_edit_status":
             return !state

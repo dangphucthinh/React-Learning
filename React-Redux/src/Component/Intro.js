@@ -10,6 +10,22 @@ class Intro extends Component {
         })
     }
 
+    callAddInStore = () => {
+        var  {dispatch} = this.props
+        dispatch({
+            type: "Change_add_status",
+            newItem: "r"
+        }) 
+    }
+
+    callDeleteInStore = () => {
+        var  {dispatch} = this.props
+        dispatch({
+            type: "Change_delete_status",
+            index: 2
+        }) 
+    }
+
     render() {
         return (
             <div>
@@ -20,6 +36,20 @@ class Intro extends Component {
                 }>
                     Click me
                 </button>
+
+                <button
+                 onClick = {
+                    this.callAddInStore
+                }>
+                  hihihehe
+                </button>
+
+                <button
+                 onClick = {
+                    this.callDeleteInStore
+                }>
+                    Click one more time
+                </button>
             </div>
         );
     }
@@ -27,7 +57,8 @@ class Intro extends Component {
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        edit : state.editReducer
+        data : state.num,
+        edit : state.editStatus
     }
 }
 

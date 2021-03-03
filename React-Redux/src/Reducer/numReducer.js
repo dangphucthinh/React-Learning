@@ -1,5 +1,5 @@
-const numReducerState = ['a', 'b', 'c']
-const numReducer = (state = numReducerState, action) => {
+const numInitialState = ['a', 'b', 'c']
+const numReducer = (state = numInitialState, action) => {
     switch (action.type) {
         case "Change_add_status":
             return [
@@ -10,7 +10,6 @@ const numReducer = (state = numReducerState, action) => {
             return [
                 state.filter((value, i) => i !== action.index)
             ]
-            
         default:
             return state;
     }
