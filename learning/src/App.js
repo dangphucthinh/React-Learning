@@ -216,7 +216,7 @@ class App extends React.Component {
     var redux = require('redux')
 
     var oldState ={
-      num: ['c','a','b'],
+      num: ['a','b','c'],
       editStatus: true
     }
 
@@ -229,10 +229,14 @@ class App extends React.Component {
             ...state,
             num : [...state.num, action.newItem]
           }
+          case "Change_delete_status":
+            return{
+              ...state,
+              num: state.num.filter((value, i) => i !== action.index)
+            }
         default:
-          break
+         return state
       }
-        return state
     }
 
     var store1 = redux.createStore(reducer1)
@@ -248,7 +252,14 @@ class App extends React.Component {
 
     store1.dispatch({
       type : "Change_add_status",
-      newItem : "hihih"
+      newItem : "d"
+    })
+
+    console.log(store1.getState());
+
+    store1.dispatch({
+      type: "Change_delete_status",
+      index: 1
     })
 
     console.log(store1.getState());
