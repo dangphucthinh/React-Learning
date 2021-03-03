@@ -240,29 +240,23 @@ class App extends React.Component {
     }
 
     var store1 = redux.createStore(reducer1)
-
-    console.log(store1.getState());
+    store1.subscribe(()=>{
+      console.log("state change after dispatch: " + JSON.stringify(store1.getState()));
+    })
 
     store1.dispatch({
       type : "Change_edit_status",
     })
-
-    console.log(store1.getState());
-
 
     store1.dispatch({
       type : "Change_add_status",
       newItem : "d"
     })
 
-    console.log(store1.getState());
-
     store1.dispatch({
       type: "Change_delete_status",
       index: 1
     })
-
-    console.log(store1.getState());
 
     return (
       <div className='App'>
