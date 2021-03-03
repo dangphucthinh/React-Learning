@@ -23,7 +23,8 @@ class App extends Component {
 
 const mapStateToProps = (state, ownProps) =>{
   return {
-    data : state.numReducerState 
+    data : state.numReducerState ,
+    edit : state.editReducerState
   }
 }
 
