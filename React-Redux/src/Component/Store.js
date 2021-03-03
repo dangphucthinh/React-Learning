@@ -1,3 +1,6 @@
+import editReducer from '../Reducer/editStatusReducer'
+import numReducer from '../Reducer/numReducer'
+
 var redux = require('redux')
 
 var oldState = {
@@ -24,7 +27,15 @@ var reducer1 = (state = oldState, action) => {
     }
 }
 
-var store1 = redux.createStore(reducer1)
+
+
+const allReducer = redux.combineReducers({
+    numReducerState : numReducer,
+    editReducerState : editReducer
+})
+
+
+var store1 = redux.createStore(allReducer)
 store1.subscribe(() => {
     console.log("state change after dispatch: " + JSON.stringify(store1.getState()));
 })
