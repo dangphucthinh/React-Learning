@@ -28,8 +28,8 @@ var redux = require('redux')
 // }
 
 const allReducer = redux.combineReducers({
-    num : numReducer,
-    editStatus : editReducer
+    num: numReducer,
+    editStatus: editReducer
 })
 
 

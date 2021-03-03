@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Component } from 'react';
 
 class App extends Component {
-  render(){
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -21,10 +21,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) =>{
+const mapStateToProps = (state, ownProps) => {
   return {
-    data : state.num,
-    edit : state.editStatus
+    data: state.num,
+    edit: state.editStatus
   }
 }
 
