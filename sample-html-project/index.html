@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no"> <!-- Disable iOS auto telephone number detection -->
+        <title>Sample HTML Project</title>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="wrapper">
+                <img src="assets/images/logo.svg" alt="" class="site-header__logo">
+                Sample HTML Project
+            </div>
+        </header>
+
+        <main class="site-main">
+            <div class="section">
+                <div class="wrapper">
+                    <form novalidate id="detailsForm">
+                        <div class="grid">
+                            <div class="grid__block">
+                                <label>
+                                    <div class="field-label">
+                                        Name*
+                                    </div>
+
+                                    <div class="field-value">
+                                        John Wick
+                                    </div>
+
+                                    <input type="text" class="field" name="name" value="John Wick" style="display: none;" id="name">
+
+                                    <div class="field-error" id="nameRequired">
+                                        Name is required.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="grid__block">
+                                <label>
+                                    <div class="field-label">
+                                        E-mail Address*
+                                    </div>
+
+                                    <div class="field-value">
+                                        donottake@mydog.com
+                                    </div>
+
+                                    <input type="email" class="field" name="email" value="donottake@mydog.com" style="display: none;" id="email">
+
+                                    <div class="field-error" id="emailRequired">
+                                        E-mail Address is required.
+                                    </div>
+
+                                    <div class="field-error" id="emailInvalid">
+                                        E-mail Address is invalid.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="grid__block">
+                                <label>
+                                    <div class="field-label">
+                                        Contact Number*
+                                    </div>
+
+                                    <div class="field-value">
+                                        0123456789
+                                    </div>
+
+                                    <input type="tel" class="field" name="contact" value="0123456789" style="display: none;" id="contact">
+
+                                    <div class="field-error" id="contactRequired">
+                                        Contact Number is required.
+                                    </div>
+
+                                    <div class="field-error" id="contactInvalid">
+                                        Contact Number should consist of 8 to 12 digits only.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="grid__block">
+                                <label>
+                                    <div class="field-label">
+                                        Gender*
+                                    </div>
+
+                                    <div class="field-value">
+                                        Male
+                                    </div>
+
+                                    <select class="field" name="gender" style="display: none;" id="gender">
+                                        <option value="">- Select -</option>
+                                        <option value="1" selected>Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Others</option>
+                                        <option value="4">I do not wish to say</option>
+                                    </select>
+
+                                    <div class="field-error" id="genderRequired">
+                                        Gender is required.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="grid__block full--">
+                                <label>
+                                    <div class="field-label">
+                                        Notes*
+                                    </div>
+
+                                    <div class="field-value">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+
+                                    <textarea name="notes" class="field" name="notes" style="display: none;" id="notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+
+                                    <div class="field-error" id="notesRequired">
+                                        Notes is required.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="grid__block full--   ta-c">
+                                <button type="button" class="button secondary--" id="edit">
+                                    Edit
+                                </button>
+
+                                <button type="submit" class="button" id="submit" style="display: none;">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <script src="assets/js/externals.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
