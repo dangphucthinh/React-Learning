@@ -32,7 +32,8 @@ class Intro extends Component {
                 <h2> This is a new Component</h2>
                 <button
                 onClick = {
-                    this.callEditStatusInStore
+                    // this.callEditStatusInStore //call by mapStateToProps
+                    () => this.props.useEditStatusInStore() //call by mapDispatchToProps
                 }>
                     Click me
                 </button>
@@ -57,9 +58,19 @@ class Intro extends Component {
 
 const mapStateToProps = (state, ownProps) =>{
     return {
-        data : state.num,
-        edit : state.editStatus
+        // data : state.num,
+        // edit : state.editStatus
     }
 }
 
-export default connect(mapStateToProps)(Intro);
+const mapDispatchToProps = (dispatch, ownProps) =>{
+    return {
+        useEditStatusInStore: ()=> {
+            dispatch({
+                type: "Change_edit_status"
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Intro);
